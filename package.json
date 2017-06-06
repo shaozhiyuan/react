@@ -18,7 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "homepage": "https://shaozhiyuan.github.io/react/build",
+    "homepage": "https://shaozhiyuan.github.io/react",
     "eject": "react-scripts eject"
   }
 }
