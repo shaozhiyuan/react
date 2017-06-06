@@ -14,11 +14,11 @@
     "react-scripts": "1.0.7",
     "webpack": "^2.6.1"
   },
+  "homepage": "https://shaozhiyuan.github.io/react/build",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "homepage": "https://shaozhiyuan.github.io/react",
     "eject": "react-scripts eject"
   }
 }
