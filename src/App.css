@@ -1,24 +1,114 @@
 .App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+body {
+  background: #ddd;
 }
-
-.App-intro {
-  font-size: large;
+.logo {
+  position: absolute;
+  float: left;
+  left: 25%;
+  line-height: 50px;
+  color: #e2e2e2;
 }
+.ipt {
+  position: absolute;
+  top: 10px;
+  float: right;
+  right: 25%;
+  height: 30px;
+  width: 400px;
+  border-radius: 5px;
+  padding-left: 5px;
+  font-size:14px;
+}
+.header {
+  position: relative;
+  background-color: #515151;
+  height: 50px;
+}
+.underway {
+  margin-left: 25%;
+  margin-top: 20px;
+}
+.needtodo {
+  margin-left:25%;
+  margin-top: 15px;
+}
+.needtodo li {
+  position: relative;
+  width:67%;
+  min-width: 200px;
+  border-radius: 4px;
+  height: 30px;
+  background-color: white;
+  line-height: 30px;
+  margin-top: 10px;
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  display: flex;
+
+}
+.needtodo li::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 100%;
+  background-color: #629a9c;
+  border-radius: 3px;
+  float: left;
+}
+.title {
+  flex-grow: 1;
+  padding: 0.5em;
+}
+.index {
+  margin-left: 10px;
+}
+.deletebtn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translate(0,-50%);
+  font-size: 14px;
+  background-color: #bed3ff;
+  vertical-align: center;
+  border: none;
+  border-radius: 3px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+.deletebtn:hover {
+  background-color: #bbc6c9;
+}
+.deletebtn:active {
+  background-color: #a5add1;
+}
+.check {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 40px;
+  transform: translate(0,-50%);
+}
+.item {
+  position: absolute;
+  display: block;
+  right: 70px;
+  left: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media(max-width: 1100px){
+  .ipt {
+    width: 200px;}
+}
+@media(max-width: 600px){
+  .ipt {
+    left: 25%;
+    top: 50px;
+  }
+  .header {
+    height: 90px;
+  }
 }

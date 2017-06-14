@@ -5,7 +5,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
+var root = document.getElementById('root')
 ReactDOM.render(
-<h1>Hegada, world!</h1>,
-    document.getElementById('root2')
-);
+    <App />,
+    root
+)
