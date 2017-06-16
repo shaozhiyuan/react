@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "leancloud-realtime": "^3.4.1",
     "leancloud-storage": "^2.5.0",
     "normalize.css": "^7.0.0",
     "react": "^15.5.4",

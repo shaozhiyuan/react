@@ -5,15 +5,17 @@ import './reset.css';
 import './App.css';
 import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
-import * as localStore from './localStore'
+import UserDialog from './UserDialog'
+import {getCurrentUser, signOut } from './leanCloud'
 
 
 class App extends Component{
     constructor(){
         super();
         this.state={
+            user: getCurrentUser || {},
             newTodo: "",
-            todoList: localStore.load('todoList')||[]
+            todoList: []
         }
     }
     render(){
@@ -29,7 +31,7 @@ class App extends Component{
         return (
             <div>
                 <div className="header">
-                    <h2 className="logo">ToDoList</h2>
+                    <h2 className="logo">{this.state.user.username || 'MY'}ToDoList {this.state.user.id ? <button onClick={this.signOut.bind(this)}> 登出</button> : null }</h2>
                     <TodoInput content={this.state.newTodo}
                     onChange={this.changeTitle.bind(this)}
                     onSubmit={this.addTodo.bind(this)}
@@ -38,10 +40,21 @@ class App extends Component{
                 <ol className="needtodo">
                    {todos}
                 </ol>
+            {this.state.user.id ? null : <UserDialog onSignUp={this.onSignUpOrSignIn.bind(this)} onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
             </div>)
     }
+    signOut(){
+        signOut()
+        let stateCopy = JSON.parse(JSON.stringify(this.state))
+        stateCopy.user={}
+        this.setState(stateCopy)
+    }
+    onSignUpOrSignIn(user){
+        let stateCopy = JSON.parse(JSON.stringify(this.state))
+        stateCopy.user = user
+        this.setState(stateCopy)
+    }
     componentDidUpdate(){
-        localStore.save('todoList', this.state.todoList)
     }
     addTodo(event){
         this.state.todoList.push({

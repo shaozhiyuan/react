@@ -1,0 +1,79 @@
+
+.UserDialog-Wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsla(0,0%,0%,0.40);
+}
+nav {
+    text-align: center;
+}
+nav label {
+    display: inline-block;
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2) inset,0 0 15px rgba(0,0,0,0.4);
+    background-color: #fff;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+nav label:hover {
+    background-color: #e1e6ff;
+}
+nav label:active {
+    background-color: #b9beff;
+}
+.signUp{
+    background-color: #ff905d;
+}
+.up {
+    width: 200px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2) inset,0 0 15px rgba(0,0,0,0.4);
+    padding-left: 15px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.row {
+    text-align: center;
+}
+.actions {
+    position: relative;
+}
+.actions button {
+    width: 120px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2),0 0 15px rgba(0,0,0,0.4);
+    background: linear-gradient(to bottom, #718ada, #586cdc);
+    cursor: pointer;
+}
+.actions>button:hover {
+    background: linear-gradient(to bottom, #4f61c6, #4859dc);
+}
+.actions>button:active {
+    background: linear-gradient(to bottom, #5194c6, #3e92c6);
+}
+.forget {
+    position: absolute;
+    bottom: 0;
+    right: -15px;
+    font-size: 12px;
+    color: white;
+}
+.resetPassword {
+    margin-bottom: 15px;
+}
