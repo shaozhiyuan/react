@@ -109,7 +109,8 @@ export default class UserDialog extends Component{
                     onSignUp={this.signUp.bind(this)}
                     onChange={this.changeFormData.bind(this)}
                     onForgotPassword={this.showForgotPassword.bind(this)}/> :
-                <ForgotPasswordForm onSubmit={this.resetPassword.bind(this)}
+                <ForgotPasswordForm formData={this.state.formData}
+                    onSubmit={this.resetPassword.bind(this)}
                     onChange={this.changeFormData.bind(this)}
                     onSignIn={this.returnToSignIn.bind(this)}/> }
                 </div>
