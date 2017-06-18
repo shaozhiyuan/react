@@ -6,7 +6,7 @@ import './App.css';
 import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
 import UserDialog from './UserDialog'
-import {getCurrentUser, signOut } from './leanCloud'
+import {getCurrentUser, signOut, TodoModel} from './leanCloud'
 
 
 class App extends Component{
@@ -16,6 +16,14 @@ class App extends Component{
             user: getCurrentUser || {},
             newTodo: "",
             todoList: []
+        }
+        let user = getCurrentUser()
+        if(user){
+            TodoModel.getByUser(user,(todos)=>{
+                let stateCopy=JSON.parse(JSON.stringify(this.state))
+                stateCopy.todoList = todos
+                this.setState(stateCopy)
+            })
         }
     }
     render(){
@@ -31,7 +39,7 @@ class App extends Component{
         return (
             <div>
                 <div className="header">
-                    <h2 className="logo">{this.state.user.username || 'MY'}ToDoList {this.state.user.id ? <button onClick={this.signOut.bind(this)}> 登出</button> : null }</h2>
+                    <h2 className="logo">MYToDoList {this.state.user.id ? <button className="getout" onClick={this.signOut.bind(this)}> 登出</button> : null }</h2>
                     <TodoInput content={this.state.newTodo}
                     onChange={this.changeTitle.bind(this)}
                     onSubmit={this.addTodo.bind(this)}
@@ -57,13 +65,20 @@ class App extends Component{
     componentDidUpdate(){
     }
     addTodo(event){
-        this.state.todoList.push({
-            id: idMaker(),
-            title: event.target.value
-        })
-        this.setState({
-            newTodo: "",
-            todoList: this.state.todoList
+       let newTodo ={
+            title: event.target.value,
+           status: '',
+           deleted: false
+        }
+        TodoModel.create(newTodo,(id)=>{
+            newTodo.id=id
+            this.state.todoList.push(newTodo)
+            this.setState({
+                newTodo: '',
+                todoList: this.state.todoList
+            })
+        },(error)=>{
+            console.log(error)
         })
     }
     changeTitle(event){
@@ -74,12 +89,20 @@ class App extends Component{
     }
     toggle(e,todo){
         todo.status=todo.status==="completed" ? "" : "completed"
-        this.setState(this.state)
+        let oldStatus = todo.status
+        TodoModel.update(todo,()=>{
+            this.setState(this.state)
+            },(error)=>{
+            todo.status=oldStatus
+            this.setState(this.state)
+        })
     }
     delete(event,todo){
-        console.log(todo)
-        todo.deleted=true
-        this.setState(this.state)
+        TodoModel.destroy(todo.id,()=>{
+            todo.deleted = true
+            this.setState(this.state)
+        })
+
     }
 
 }

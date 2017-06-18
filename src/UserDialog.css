@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: hsla(0,0%,0%,0.40);
+    background: hsla(224, 26%, 31%, 1);
 }
 nav {
     text-align: center;
@@ -20,7 +20,7 @@ nav label {
     height: 30px;
     border-radius: 3px;
     border: none;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2) inset,0 0 15px rgba(0,0,0,0.4);
+    /*box-shadow: 0 0 20px rgba(0,0,0,0.2) inset,0 0 15px rgba(0,0,0,0.4);*/
     background-color: #fff;
     line-height: 30px;
     text-align: center;
@@ -33,15 +33,20 @@ nav label:hover {
 nav label:active {
     background-color: #b9beff;
 }
-.signUp{
-    background-color: #ff905d;
+.signInOrSignUp{
+    padding-top: 25px;
+    padding-bottom: 20px;
+    background-color: #c9cdd6;
+    border-radius: 3px;
+    width: 400px;
+    box-shadow: 0 0 20px rgba(201, 205, 214, 0.4);
 }
 .up {
     width: 200px;
     height: 35px;
     border: none;
     border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2) inset,0 0 15px rgba(0,0,0,0.4);
+    /*box-shadow: 0 0 20px rgba(0,0,0,0.2) inset,0 0 15px rgba(0,0,0,0.4);*/
     padding-left: 15px;
     font-size: 14px;
     margin-bottom: 15px;
@@ -57,9 +62,10 @@ nav label:active {
     height: 35px;
     border-radius: 5px;
     border: none;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2),0 0 15px rgba(0,0,0,0.4);
+    /*box-shadow: 0 0 20px rgba(0,0,0,0.2),0 0 15px rgba(0,0,0,0.4);*/
     background: linear-gradient(to bottom, #718ada, #586cdc);
     cursor: pointer;
+    color: white;
 }
 .actions>button:hover {
     background: linear-gradient(to bottom, #4f61c6, #4859dc);
@@ -70,10 +76,16 @@ nav label:active {
 .forget {
     position: absolute;
     bottom: 0;
-    right: -15px;
+    right: 40px;
     font-size: 12px;
     color: white;
 }
 .resetPassword {
     margin-bottom: 15px;
+}
+.getout {
+    font-size: 12px;
+    border: none;
+    background-color: #515151;
+    color: #e9e9e9;
 }
