@@ -18,6 +18,7 @@ class TodoItem extends Component{
         this.props.onToggle(e,this.props.todo)
     }
     delete(e){
+        console.log("woshidelet")
         this.props.onDelete(e,this.props.todo)
     }
 }

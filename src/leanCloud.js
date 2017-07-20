@@ -51,7 +51,8 @@ export const TodoModel = {
             successFn && successFn.call(null)
         }, (error) => errorFn && errorFn.call(null, error))
     },
-    destory(todoId, successFn, errorFn){
+    destroy(todoId, successFn, errorFn){
+        console.log("这里是")
         TodoModel.update({id: todoId, deleted: true}, successFn, errorFn)
     }
 

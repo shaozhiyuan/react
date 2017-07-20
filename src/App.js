@@ -98,7 +98,9 @@ class App extends Component{
         })
     }
     delete(event,todo){
+        console.log("jinlai l ")
         TodoModel.destroy(todo.id,()=>{
+            console.log("delete l")
             todo.deleted = true
             this.setState(this.state)
         })
